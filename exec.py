@@ -76,8 +76,6 @@ def exec_exercice_1():
         print("--------------------------------------")
         plt.figure(print_month_info(i, ""))
         plt.plot(month_value)
-        axes = plt.gca()
-        Slider(axes, "toto", 1, 30, valinit=1)
         month_value = []
         for j in sheet.col_values(i):
             if j == "":
