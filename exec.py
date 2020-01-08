@@ -39,7 +39,7 @@ def getMax(col_array):
 
 def print_month_info(col, data):
     month_lst = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
-                 'Aout', 'Septembre', 'Octobre', 'Novrembre', 'Decembre']
+                 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre']
     return month_lst[col]+" : "+str(data)
 
 
@@ -49,11 +49,13 @@ def get_ecart_type(moyenne, col_array):
         if value == "":
             break
         variance = variance + ((num(value) - moyenne)*(num(value) - moyenne))
-
     return round(math.sqrt(variance/len(col_array)), 1)
 
 
-def executable():
+
+def exec_exercice_1():
+    File = xlrd.open_workbook('Climat.xlsx')
+    sheet = File.sheet_by_name('Feuil2')
     year_min_values = []
     year_max_values = []
     month_value = []
@@ -92,13 +94,10 @@ def executable():
     plt.plot(years_values)
     plt.ylabel("Temperature °C")
     plt.xlabel("Jour")
-
     plt.show()
 
 
-file = xlrd.open_workbook('Climat.xlsx')
-sheet = file.sheet_by_name('Feuil2')
-executable()
+exec_exercice_1()
 
 
 
