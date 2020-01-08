@@ -57,6 +57,7 @@ def get_ecart_type(moyenne, col_array):
 
 year_min_values = []
 year_max_values = []
+month_value = []
 years_values = []
 
 for i in range(sheet.ncols):
@@ -65,6 +66,10 @@ for i in range(sheet.ncols):
     max = getMax(sheet.col_values(i))
     year_min_values.append(min)
     year_max_values.append(max)
+    for h in sheet.col_values(i):
+        if h == "":
+            break
+        month_value.append(num(h))
     print("====================")
     print("Moyenne: " + print_month_info(i, moy))
     print("Minimum: " + print_month_info(i, min))
@@ -72,9 +77,12 @@ for i in range(sheet.ncols):
     print("Ecart type: " + str(get_ecart_type(moy, sheet.col_values(i))))
     print("--------------------------------------")
     plt.figure(print_month_info(i, ""))
-    plt.plot(sheet.col_values(i))
+    plt.plot(month_value)
+    month_value = []
     for j in sheet.col_values(i):
-        years_values.append(j)
+        if j == "":
+            break
+        years_values.append(num(j))
 
 print("====================")
 print("Minimum for year : " + str(getMin(year_min_values)))
