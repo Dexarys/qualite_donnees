@@ -92,7 +92,7 @@ def exec_exercice_1():
     print("Minimum for year : " + str(getMin(year_min_values)))
     print("Maximum for year : " + str(getMax(year_max_values)))
 
-    fig = plt.figure()
+    fig = plt.figure("Years")
     ax = fig.add_subplot(111)
     fig.subplots_adjust(left=0.25, bottom=0.25)
     min0 = 0
